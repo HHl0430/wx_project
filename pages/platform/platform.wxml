@@ -1,0 +1,34 @@
+<!--pages/platform/platform.wxml-->
+<view class="page">
+  <view class="content-box">
+    <view class="list-box" wx:for="{{dataList}}" data-iid="{{item.iid}}" bindtap="detail">
+      <van-row>
+        <van-col span="3">
+          <view class="fl">
+            <van-icon wx:if="{{item.state == '未发布'}}" name="clock-o" color="#ff9900" />
+            <van-icon wx:if="{{item.state == '已发布'}}" name="passed" color="#1989fa" />
+            <van-icon wx:if="{{item.state == '已撤回'}}" name="close" color="#ff9900" />
+          </view>
+        </van-col>
+        <van-col span="21">
+          <view class="fr">
+            <text class="title">{{item.iitemname}}</text>
+            <text class="time">项目周期:{{item.ibegintime}} / {{item.iendtime}}</text>
+            <van-tag class="state" color="{{item.color}}">
+              {{item.state }}
+            </van-tag>
+          </view>
+        </van-col>
+      </van-row>
+    </view>
+    <!-- <van-divider wx:if="{{dataList.length < 1}}" contentPosition="center" customStyle="color: #1989fa;border-color: #1989fa;font-size: 18px;margin-top: 30%"></van-divider> -->
+  </view>
+  <van-tabbar active="{{ active }}" bind:change="onChange">
+    <van-tabbar-item icon="home-o">项目列表</van-tabbar-item>
+    <van-tabbar-item icon="orders-o">新建项目</van-tabbar-item>
+    <van-tabbar-item icon="chart-trending-o">统计</van-tabbar-item>
+    <van-tabbar-item icon="friends-o">我的</van-tabbar-item>
+  </van-tabbar>
+  <van-notify id="van-notify" />
+
+</view>

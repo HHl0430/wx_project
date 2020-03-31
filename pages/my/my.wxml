@@ -1,0 +1,110 @@
+<!--pages/my/my.wxml-->
+<view class="page">
+  <view class="content">
+    <view class="list">
+      <view class="list-item">
+        <van-row>
+          <van-col span="6">
+            <text class="{{editState ? 'title_text' : ''}}">用户名:</text>
+          </van-col>
+          <van-col span="18">
+            <text class="text" wx:if="{{!editState}}">{{userInfo.uname}}</text>
+            <van-field class="input" data-model="userInfo" data-item="uname" wx:if="{{editState}}" value="{{ userInfo.uname }}" placeholder="请输入用户名" bindinput='inputWacth' />
+          </van-col>
+        </van-row>
+      </view>
+      <view class="list-item">
+        <van-row>
+          <van-col span="6">
+            <text class="{{editState ? 'title_text' : ''}}">账号:</text>
+          </van-col>
+          <van-col span="18">
+            <text class="text" wx:if="{{!editState}}">{{userInfo.uaccount}}</text>
+            <van-field class="input" wx:if="{{editState}}" data-model="userInfo" data-item="uaccount" bindinput='inputWacth' value="{{ userInfo.uaccount }}" placeholder="请输入账号" disabled />
+          </van-col>
+        </van-row>
+      </view>
+      <view class="list-item" wx:if="{{utype == 1}}">
+        <van-row>
+          <van-col span="6">
+            <text class="{{editState ? 'title_text' : ''}}">身份证号:</text>
+          </van-col>
+          <van-col span="18">
+            <text class="text" wx:if="{{!editState}}">{{form.idCard}}</text>
+            <van-field data-model="form" data-item="idCard" bindinput='inputWacth' class="input" wx:if="{{editState}}" value="{{ form.idCard }}" placeholder="请输入身份证号" />
+          </van-col>
+        </van-row>
+      </view>
+      <view class="list-item">
+        <van-row>
+          <van-col span="6">
+            <text class="{{editState ? 'title_text' : ''}}">手机:</text>
+          </van-col>
+          <van-col span="18">
+            <text class="text" wx:if="{{!editState}}">{{userInfo.uphone}}</text>
+            <van-field data-model="userInfo" data-item="uphone" bindinput='inputWacth' class="input" wx:if="{{editState}}" value="{{ userInfo.uphone }}" placeholder="请输入手机" />
+          </van-col>
+        </van-row>
+      </view>
+      <view class="list-item">
+        <van-row>
+          <van-col span="6">
+            <text class="{{editState ? 'title_text' : ''}}">地址:</text>
+          </van-col>
+          <van-col span="18">
+            <text class="text" wx:if="{{!editState}}">{{userInfo.uaddress}}</text>
+            <van-field data-model="userInfo" data-item="uaddress" bindinput='inputWacth' class="input" wx:if="{{editState}}" value="{{ userInfo.uaddress }}" placeholder="请输入地址" />
+          </van-col>
+        </van-row>
+      </view>
+      <view class="list-item" wx:if="{{utype == 1}}">
+        <van-row>
+          <van-col span="6">
+            <text class="{{editState ? 'title_text' : ''}}">开户行:</text>
+          </van-col>
+          <van-col span="18">
+            <text class="text" wx:if="{{!editState}}">{{form.udBank}}</text>
+            <van-field data-model="form" data-item="udBank" bindinput='inputWacth' class="input" wx:if="{{editState}}" value="{{ form.udBank }}" placeholder="请输入开户行" />
+          </van-col>
+        </van-row>
+      </view>
+      <view class="list-item" wx:if="{{utype == 1}}">
+        <van-row>
+          <van-col span="6">
+            <text class="{{editState ? 'title_text' : ''}}">开户行分行:</text>
+          </van-col>
+          <van-col span="18">
+            <text class="text" wx:if="{{!editState}}">{{form.udBankPayee}}</text>
+            <van-field data-model="form" data-item="udBankPayee" bindinput='inputWacth' class="input" wx:if="{{editState}}" value="{{ form.udBankPayee }}" placeholder="请输入开户行分行" />
+          </van-col>
+        </van-row>
+      </view>
+      <view class="list-item" wx:if="{{utype == 1}}">
+        <van-row>
+          <van-col span="6">
+            <text class="{{editState ? 'title_text' : ''}}">开户账号:</text>
+          </van-col>
+          <van-col span="18">
+            <text class="text" wx:if="{{!editState}}">{{form.udBankNumber}}</text>
+            <van-field data-model="form" data-item="udBankNumber" bindinput='inputWacth' class="input" wx:if="{{editState}}" value="{{ form.udBankNumber }}" placeholder="请输入开户账号" />
+          </van-col>
+        </van-row>
+      </view>
+    </view>
+    <view class="btn-box">
+      <van-button class="btn" wx:if="{{!editState && utype == 1}}" bindtap="btnclick" type="info">编辑资料</van-button>
+      <van-button class="btn" wx:if="{{!editState}}" bindtap="logout" type="danger">注 销</van-button>
+      <van-button class="btn" wx:if="{{editState}}" bindtap="save" type="info">保 存</van-button>
+      <van-button class="btn" wx:if="{{editState}}" bindtap="cancel" type="warning">取 消</van-button>
+    </view>
+  </view>
+  <van-tabbar active="{{ active }}" bind:change="onChange">
+    <van-tabbar-item icon="home-o">项目列表</van-tabbar-item>
+    <van-tabbar-item icon="orders-o" wx:if="{{utype == 0}}">新建项目</van-tabbar-item>
+    <van-tabbar-item icon="chart-trending-o">统计</van-tabbar-item>
+    <van-tabbar-item icon="friends-o">我的</van-tabbar-item>
+
+  </van-tabbar>
+  <van-toast id="van-toast" />
+  <van-dialog id="van-dialog" />
+</view>

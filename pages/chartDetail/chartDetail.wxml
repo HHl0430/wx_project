@@ -1,0 +1,16 @@
+<wxs src='../../utils/filter.wxs' module='filter' />
+<view>
+  <view class="table">
+    <view class="table_th">
+      <text class="{{type !=1 ? '' : 'utype'}}">项目名称</text>
+      <text class="{{type !=1 ? '' : 'utype'}}">金额</text>
+      <text wx:if="{{type !=1 }}">参与人数</text>
+    </view>
+    <view class="table_td" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+      <text class="text {{type !=1 ? '' : 'utype'}}" bindtap="projectDet" data-iid="{{item.iid}}" data-iuid="{{item.iuId}}">{{item.iitemname}}</text>
+      <text class="{{type !=1 ? '' : 'utype'}}">{{filter.digitalConversion(item.igatheringmoney)}}</text>
+      <text wx:if="{{type !=1 }}">{{item.iuJoinintentionSum}}</text>
+
+    </view>
+  </view>
+</view>

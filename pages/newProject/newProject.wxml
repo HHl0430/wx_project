@@ -1,0 +1,191 @@
+<!-- 引入过滤文件 -->
+<wxs src='../../utils/filter.wxs' module='filter' />
+<view class="page">
+  <text class="form-title">项目基本信息</text>
+  <block wx:if="{{datePickerIsShow}}">
+    <com-date-picker id="date-picker" startAt="{{startAt}}" endAt="{{endAt}}" isShow="{{datePickerIsShow}}" bindsureclick="onDatePickerOnSureClick" bindonTouchmask="onTouchmask">
+    </com-date-picker>
+  </block>
+  <view class="list">
+    <view class="list-item">
+      <van-row>
+        <van-col span="8">
+          <text>项目名称:</text>
+        </van-col>
+        <van-col span="16">
+          <van-field class="input" data-name="iitemname" value="{{ form.iitemname }}" placeholder="请输入项目名称" bindinput='inputWacth' />
+        </van-col>
+      </van-row>
+    </view>
+    <view class="list-item">
+      <van-row>
+        <van-col span="8">
+          <text>项目介绍:</text>
+        </van-col>
+        <van-col span="16">
+          <van-field class="input" data-name="iiteminfo" value="{{ form.iiteminfo }}" placeholder="请输入项目介绍" bindinput='inputWacth' />
+        </van-col>
+      </van-row>
+    </view>
+    <view class="list-item">
+      <van-row>
+        <van-col span="8">
+          <text>项目始末:</text>
+        </van-col>
+        <van-col span="16">
+          <view class="picker" bindtap="showpicker">
+            <van-field class="input" disabled value="{{ form.time }}" placeholder="请输入项目开始日期" bindinput='inputWacth' />
+          </view>
+        </van-col>
+      </van-row>
+    </view>
+    <view class="list-item">
+      <van-row>
+        <van-col span="8">
+          <text>项目截至日期:</text>
+        </van-col>
+        <van-col span="16">
+          <picker data-type="iitemlastdate" mode="date" value="{{form.iitemlastdate}}" bindchange="bindDateChange">
+            <view class="picker">
+              <van-field class="input" disabled value="{{ form.iitemlastdate }}" placeholder="请输入项目截至日期" bindinput='inputWacth' />
+            </view>
+          </picker>
+        </van-col>
+      </van-row>
+    </view>
+    <view class="list-item">
+      <van-row>
+        <van-col span="8">
+          <text>项目金额:</text>
+        </van-col>
+        <van-col span="16">
+          <van-field class="input" data-name="igatheringmoney" value="{{ form.igatheringmoney }}" placeholder="请输入项目金额" bindinput='inputWacth' />
+        </van-col>
+      </van-row>
+    </view>
+    <view class="list-item">
+      <van-row>
+        <van-col span="8">
+          <text>项目利率(月/%):</text>
+        </van-col>
+        <van-col span="16">
+          <van-field class="input" data-name="irate" value="{{ form.irate }}" placeholder="请输入项目利率" bindinput='inputWacth' />
+        </van-col>
+      </van-row>
+    </view>
+    <view class="list-item">
+      <van-row>
+        <van-col span="8">
+          <text>项目期数:</text>
+        </van-col>
+        <van-col span="16">
+          <van-field class="input" data-name="iitemperiods" value="{{ form.iitemperiods }}" placeholder="请输入项目期数" bindinput='inputWacth' />
+        </van-col>
+      </van-row>
+    </view>
+    <view class="list-item">
+      <van-row>
+        <van-col span="8">
+          <text>周期单位:</text>
+        </van-col>
+        <van-col span="16">
+          <van-radio-group value="{{ form.iitemperiodsType }}" bind:change="radioChange">
+            <van-radio name="0" icon-size="13px">以日计息</van-radio>
+            <van-radio name="1" icon-size="13px">以月计息</van-radio>
+          </van-radio-group>
+        </van-col>
+      </van-row>
+    </view>
+    <view class="list-item" wx:if="{{form.iitemperiodsType == 1}}">
+      <van-row>
+        <van-col span="8">
+          <text>打款日期:</text>
+        </van-col>
+        <van-col span="16">
+          <van-field class="input" data-name="iitemperiodsMonth" value="{{ form.iitemperiodsMonth }}" placeholder="请输入打款日期" bindinput='inputWacth' />
+        </van-col>
+      </van-row>
+    </view>
+    <view class="list-item" wx:if="{{form.iitemperiodsType == 0}}">
+      <van-row>
+        <van-col span="8">
+          <text>每期天数:</text>
+        </van-col>
+        <van-col span="16">
+          <van-field class="input" data-name="iitemperiodsday" value="{{ form.iitemperiodsday }}" placeholder="请输入每期天数" bindinput='inputWacth' />
+        </van-col>
+      </van-row>
+    </view>
+    <view class="list-item">
+      <van-row>
+        <van-col span="8">
+          <text>收款银行名称:</text>
+        </van-col>
+        <van-col span="16">
+          <van-field class="input" data-name="ibBank" value="{{ form.ibBank }}" placeholder="请输入收款银行名称" bindinput='inputWacth' />
+        </van-col>
+      </van-row>
+    </view>
+    <view class="list-item">
+      <van-row>
+        <van-col span="8">
+          <text>收款银行支行名称:</text>
+        </van-col>
+        <van-col span="16">
+          <van-field class="input" data-name="ibBankBranch" value="{{ form.ibBankBranch }}" placeholder="请输入收款银行支行名称" bindinput='inputWacth' />
+        </van-col>
+      </van-row>
+    </view>
+    <view class="list-item">
+      <van-row>
+        <van-col span="8">
+          <text>收款银行账户:</text>
+        </van-col>
+        <van-col span="16">
+          <van-field class="input" data-name="ibBanknumber" value="{{ form.ibBanknumber }}" placeholder="请输入收款银行账户" bindinput='inputWacth' />
+        </van-col>
+      </van-row>
+    </view>
+    <view class="list-item">
+      <van-row>
+        <van-col span="8">
+          <text>收款开户人姓名:</text>
+        </van-col>
+        <van-col span="16">
+          <van-field class="input" data-name="ibPayee" value="{{ form.ibPayee }}" placeholder="请输入收款开户人姓名" bindinput='inputWacth' />
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+  <view style="position: relative;">
+    <text class="form-title">人员金额  
+    (总金额：{{form.igatheringmoney == '' ? 0.00:  filter.digitalConversion(form.igatheringmoney)}},剩余金额：{{filter.digitalConversion(money)}})</text>
+    <text class="select_people" bindtap="selectPeople">选 择</text>
+  </view>
+  <view class="user-table list">
+    <van-divider wx:if="{{inputVal.length < 1}}" contentPosition="center" customStyle="color: #1989fa;border-color: #1989fa;font-size: 18px;">暂无人员，请选择人员</van-divider>
+    <view class="list-item" wx:for="{{inputVal}}" wx:key='index'>
+      <van-row>
+        <van-col span="12">
+          <text>{{item.name}}:</text>
+        </van-col>
+        <van-col span="12">
+          <van-field class="input" data-idx='{{index}}' placeholder="请输入金额" value='{{item.iuJoinitemmoney}}' bindinput='getInputVal' />
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+  <view class="btn-box">
+
+    <van-button class="btn" bindtap="save" type="info">添 加</van-button>
+  </view>
+  <van-tabbar active="{{ active }}" bind:change="activeOnChange">
+    <van-tabbar-item icon="home-o">项目列表</van-tabbar-item>
+    <van-tabbar-item icon="orders-o">新建项目</van-tabbar-item>
+    <van-tabbar-item icon="chart-trending-o">统计</van-tabbar-item>
+    <van-tabbar-item icon="friends-o">我的</van-tabbar-item>
+  </van-tabbar>
+  <van-toast id="van-toast" />
+  <van-dialog id="van-dialog" />
+  <van-notify id="van-notify" />
+</view>

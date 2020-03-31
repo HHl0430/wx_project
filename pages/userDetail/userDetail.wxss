@@ -1,0 +1,72 @@
+/* pages/userDetail/userDetail.wxss */
+
+.page {
+  padding: 0 10px;
+}
+
+.form-item {
+  padding: 10px;
+  font-size: 13px;
+  background: #fff;
+  border-top: 1px solid #f7f7f7;
+}
+
+.upload-btn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.text {
+  display: block;
+  width: 100%;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #2d8cf0;
+}
+
+.form-item .van-uploader__preview-image, .wrapper  .van-uploader__preview-image {
+  height: 50px;
+  width: 50px;
+}
+
+.wrapper  .van-uploader__file {
+  height: 50px;
+  width: 50px;
+}
+
+.wrapper .van-uploader__upload {
+  display: none;
+}
+
+.form-item .van-uploader__upload {
+  height: 50px;
+  width: 50px;
+}
+
+.list {
+  margin: 15px 0;
+}
+
+.list-item {
+  background: #fff;
+  border-top: 1px solid #f7f7f7;
+  padding: 6px 6px 0 6px;
+}
+
+.list-item text {
+  font-size: 13px;
+}
+
+.list-item .state {
+  float: right;
+  margin-right: 10px;
+}
+
+.list-item .time {
+  display: block;
+  margin-top: 5px;
+}

@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="content">
+    <van-cell-group>
+      <van-field value="{{ username }}" bindinput='nameblur' required label="用户名" placeholder="请输入用户名" bind:click-icon="onClickIcon" />
+
+      <van-field value="{{ password }}" bindinput='pawdblur' type="password" label="密码" placeholder="请输入密码" required border="{{ false }}" />
+
+    </van-cell-group>
+    <van-button type="info" class="btn" bindtap="btnclick">登 录</van-button>
+  </view>
+  <van-toast id="van-toast" />
+
+</view>

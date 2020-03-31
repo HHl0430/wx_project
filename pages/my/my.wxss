@@ -1,0 +1,48 @@
+/* pages/my/my.wxss */
+
+.content {
+  height: calc(100% - 65px);
+  padding: 0 10px;
+  overflow: auto;
+}
+
+.list-item {
+  padding: 10px;
+  border-top: 1px solid #f7f7f7;
+  background: #fff;
+}
+
+.list-item text {
+  display: block;
+  width: 100%;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.list-item .title_text {
+  display: block;
+  width: 100%;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 40px;
+}
+
+.list-item .text {
+  color: #1989fa;
+}
+
+.btn button:not([size='mini']) {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.input .van-cell {
+  padding: 0 8px;
+}
+
+.btn-box {
+  margin-bottom: 15px
+}

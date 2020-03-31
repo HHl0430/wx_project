@@ -1,0 +1,67 @@
+/* pages/newProject/newProject.wxss */
+
+.list-item {
+  padding: 10px;
+  border-top: 1px solid #f7f7f7;
+  background: #fff;
+}
+
+.list-item text {
+  display: block;
+  width: 100%;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-item .text {
+  color: #1989fa;
+}
+
+.value-class {
+  flex: none !important;
+}
+
+.user-box {
+  margin-top: 10px;
+  height: 230px;
+  overflow: auto;
+}
+
+.list-box {
+  background: #fff;
+  border-top: 1px solid #f7f7f7;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.title {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.time {
+  font-size: 12px;
+}
+
+.state {
+  font-size: 12px;
+  float: right;
+  margin-right: 10px;
+}
+
+.fl {
+  margin-top: 14px;
+  margin-left: 9px;
+}
+
+.btn button:not([size='mini']) {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.page {
+  padding: 0 10px;
+}

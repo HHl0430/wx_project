@@ -1,0 +1,15 @@
+/**index.wxss**/
+
+.btn button:not([size='mini']) {
+  margin-top: 40rpx;
+  width: 100%;
+}
+
+.container {
+  padding: 20rpx;
+  padding-top: 30%;
+}
+
+.content {
+  width: 100%;
+}

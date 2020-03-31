@@ -1,0 +1,85 @@
+<!--pages/financialDetail/financialDetail.wxml-->
+<!-- 引入过滤文件 -->
+<wxs src='../../utils/filter.wxs' module='filter' />
+<view class="page">
+  <view class="form">
+    <view class="form-item">
+      <van-row>
+        <van-col span="10">
+          <text>项目名称:</text>
+        </van-col>
+        <van-col span="14">
+          <text class="text">{{form.iitemname}}</text>
+        </van-col>
+      </van-row>
+    </view>
+    <view class="form-item">
+      <van-row>
+        <van-col span="10">
+          <text>项目金额:</text>
+        </van-col>
+        <van-col span="14">
+          <text class="text">{{filter.digitalConversion(form.iuJoinitemmoney)}}</text>
+        </van-col>
+      </van-row>
+    </view>
+    <view class="form-item">
+      <van-row>
+        <van-col span="10">
+          <text>项目周期:</text>
+        </van-col>
+        <van-col span="14">
+          <text class="text">{{form.time}}</text>
+        </van-col>
+      </van-row>
+    </view>
+    <view class="form-item">
+      <van-row>
+        <van-col span="10">
+          <text>项目截至日期:</text>
+        </van-col>
+        <van-col span="14">
+          <text class="text">{{form.iitemlastdate}}</text>
+        </van-col>
+      </van-row>
+    </view>
+    <view class="form-item">
+      <van-row>
+        <van-col span="10">
+          <text>项目期数:</text>
+        </van-col>
+        <van-col span="14">
+          <text class="text" wx:if="{{form.iitemperiodsType != 0}}">{{form.iitemperiods}}期</text>
+          <text class="text" wx:else>{{form.iitemperiods}}期 / 每期{{form.iitemperiodsday}}天</text>
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+  <view class="list">
+    <view class="list-item wrapper" wx:for="{{form.itemsUsers}}">
+      <van-row>
+        <van-col span="6">
+          <van-uploader deletable="{{false}}" disabled file-list="{{ [{name:'暂无',url:item.iuMoneyvoucher}] }}" />
+        </van-col>
+        <van-col span="18">
+          <text class="name">{{item.uname}}</text>
+          <text class="monery">{{filter.digitalConversion(item.iuJoinitemmoney)}}</text>
+          <view>
+            <text class="state">
+              {{item.iuJoinintention == 0 ? '无意向' : item.iuJoinintention == 1 ? '有意向' : '已退出' }}                </text>
+            <view class="minibtn-box">
+              <van-button bindtap="saveCount" data-iuId="{{item.iuId}}" wx:if="{{item.iuJoinintention == 1 && item.iuToaccount == 0}}" size="mini" class="mini-btn" type="primary">
+                确认收款
+              </van-button>
+              <van-button bindtap="viewInfo" data-iuId="{{item.iuId}}" wx:if="{{item.iuJoinintention == 1}}" size="mini" class="mini-btn" type="info">
+                查看分期
+              </van-button>
+            </view>
+          </view>
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+  <van-toast id="van-toast" />
+  <van-dialog id="van-dialog" />
+</view>

@@ -1,0 +1,29 @@
+<wxs src='../../utils/filter.wxs' module='filter' />
+<view>
+  <view class="table">
+    <view class="table_th">
+      <text class="year">年份</text>
+      <text class="num">数量</text>
+      <text>利息</text>
+      <text class="money">项目金额</text>
+      <text class="money">金额总计</text>
+    </view>
+    <view class="table_td" wx:for="{{list}}" wx:for-index="index" wx:for-item="item">
+      <text class="year">{{item.statisticalYear}}</text>
+      <text class="text num" bindtap="projectDet" data-years="{{item.statisticalYear}}">{{item.itemsNumber}}</text>
+      <text>{{filter.digitalConversion(item.totalOfPayment)}}</text>
+      <text class="money">{{filter.digitalConversion(item.totalOfCollection)}}</text>
+      <text class="money">{{filter.digitalConversion(item.totalOfamount)}}</text>
+    </view>
+    <view class="btn-box">
+      <van-button class="btn" wx:if="{{type != 1}}" bindtap="btnclick" type="info">查看用户统计</van-button>
+    </view>
+  </view>
+
+  <van-tabbar active="{{ active }}" bind:change="onChange">
+    <van-tabbar-item icon="home-o">项目列表</van-tabbar-item>
+    <van-tabbar-item icon="orders-o" wx:if="{{utype == 0}}">新建项目</van-tabbar-item>
+    <van-tabbar-item icon="chart-trending-o">统计</van-tabbar-item>
+    <van-tabbar-item icon="friends-o">我的</van-tabbar-item>
+  </van-tabbar>
+</view>

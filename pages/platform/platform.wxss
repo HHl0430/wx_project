@@ -1,0 +1,34 @@
+/* pages/platform/platform.wxss */
+
+.content-box {
+  padding: 0 10px;
+  overflow: auto;
+  padding-bottom: 65px;
+}
+
+.list-box {
+  background: #fff;
+  border-top: 1px solid #f7f7f7;
+  padding: 10px 5px;
+}
+
+.title {
+  display: block;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.time {
+  font-size: 12px;
+}
+
+.state {
+  font-size: 12px;
+  float: right;
+  margin-right: 10px;
+}
+
+.fl {
+  margin-top: 14px;
+  margin-left: 9px;
+}

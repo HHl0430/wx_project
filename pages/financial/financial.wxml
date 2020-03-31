@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="content-box">
+    <view class="list-box" wx:for="{{dataList}}" data-iid="{{item.iid}}" bindtap="detail" wx:for-index="index" wx:for-item="item">
+      <van-row>
+        <van-col span="3">
+          <view class="fl">
+            <van-icon wx:if="{{item.iitemstate == 1}}" name="clock-o" color="#ff9900" />
+            <van-icon wx:if="{{item.iitemstate == 2}}" name="passed" color="#1989fa" />
+          </view>
+        </van-col>
+        <van-col span="21">
+          <view class="fr">
+            <text class="title">{{item.iitemname}}</text>
+            <text class="time">项目周期:{{item.ibegintime}} / {{item.iendtime}}</text>
+            <van-tag class="state" color="{{item.color}}">
+              {{item.iitemstate == 1 ? '进行中' : '已完成'}}
+            </van-tag>
+          </view>
+        </van-col>
+      </van-row>
+
+
+    </view>
+    <van-divider wx:if="{{dataList.length < 1}}" contentPosition="center" customStyle="color: #1989fa;border-color: #1989fa;font-size: 18px;margin-top: 30%">暂时没有项目</van-divider>
+  </view>
+  <van-tabbar active="{{ active }}" bind:change="onChange">
+    <van-tabbar-item icon="home-o">项目列表</van-tabbar-item>
+    <van-tabbar-item icon="chart-trending-o">统计</van-tabbar-item>
+    <van-tabbar-item icon="friends-o">我的</van-tabbar-item>
+  </van-tabbar>
+  <van-toast id="van-toast" />
+</view>

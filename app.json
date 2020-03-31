@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/logs",
+    "pages/my/my",
+    "pages/userDetail/userDetail",
+    "pages/financial/financial",
+    "pages/financialDetail/financialDetail",
+    "pages/financialProDeta/financialProDeta",
+    "pages/platform/platform",
+    "pages/newProject/newProject",
+    "pages/projectDetail/projectDetail",
+    "pages/chart/chart",
+    "pages/chartDetail/chartDetail",
+    "pages/selectPeople/selectPeople",
+    "pages/login/login",
+    "pages/userChart/userChart",
+    "pages/userChartDetail/userChartDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 50
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "./dist/button/index",
+    "van-field": "./dist/field/index",
+    "van-toast": "./dist/toast/index",
+    "van-row": "./dist/row/index",
+    "van-col": "./dist/col/index",
+    "van-tag": "./dist/tag/index",
+    "van-icon": "./dist/icon/index",
+    "van-notify": "./dist/notify/index",
+    "van-uploader": "./dist/uploader/index",
+    "van-dialog": "./dist/dialog/index",
+    "van-loading": "./dist/dialog/index"
+  }
+}

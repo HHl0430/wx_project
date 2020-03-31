@@ -1,0 +1,92 @@
+<!--pages/userDetail/userDetail.wxml-->
+<wxs src='../../utils/filter.wxs' module='filter' />
+<view class="page">
+  <view class="form">
+    <view class="form-item">
+      <van-row>
+        <van-col span="6">
+          <text>项目名称:</text>
+        </van-col>
+        <van-col span="18">
+          <text class="text">{{form.iitemname}}</text>
+        </van-col>
+      </van-row>
+    </view>
+    <view class="form-item">
+      <van-row>
+        <van-col span="6">
+          <text>金额:</text>
+        </van-col>
+        <van-col span="18">
+          <text class="text">{{filter.digitalConversion(form.igatheringmoney)}}</text>
+        </van-col>
+      </van-row>
+    </view>
+    <view class="form-item">
+      <van-row>
+        <van-col span="6">
+          <text>收款开户人:</text>
+        </van-col>
+        <van-col span="18">
+          <text class="text">{{form.ibPayee}}</text>
+        </van-col>
+      </van-row>
+    </view>
+    <view class="form-item">
+      <van-row>
+        <van-col span="6">
+          <text>收款银行:</text>
+        </van-col>
+        <van-col span="18">
+          <text class="text">{{form.ibBank}}</text>
+        </van-col>
+      </van-row>
+    </view>
+    <view class="form-item">
+      <van-row>
+        <van-col span="6">
+          <text>收款账户:</text>
+        </van-col>
+        <van-col span="18">
+          <text class="text">{{form.ibBanknumber}}</text>
+        </van-col>
+      </van-row>
+    </view>
+    <view class="form-item wrapper" wx:if="{{form.iuMoneyvoucher != '' && form.iuMoneyvoucher != null}}">
+      <van-row>
+        <van-col span="6">
+          <text>凭证:</text>
+        </van-col>
+        <van-col span="18">
+          <van-uploader wx:if="{{isImage}}" deletable="{{false}}" disabled file-list="{{ fileList }}" />
+        </van-col>
+      </van-row>
+    </view>
+    <view class="form-item" wx:if="{{form.iuMoneyvoucher == '' || form.iuMoneyvoucher == null}}">
+      <van-row>
+        <van-col span="6">
+          <text>上传凭证:</text>
+        </van-col>
+        <van-col span="18">
+          <van-uploader file-list="{{ fileList1 }}" bind:delete="deletaImg" bind:after-read="afterRead" />
+        </van-col>
+
+      </van-row>
+    </view>
+
+  </view>
+  <view class="list">
+    <view class="list-item wrapper" wx:for="{{list}}">
+      <van-row>
+        <van-col span="6">
+          <van-uploader deletable="{{false}}" disabled file-list="{{ [{name:'暂无',url:item.irPaymentvoucher}] }}" />
+        </van-col>
+        <van-col span="18">
+          <text class="money">{{filter.digitalConversion(item.irToaccount)}}</text>
+          <text class="state">{{item.irRepaymestate == '0'?'未收款' : item.irRepaymestate == '1' ? '已收款' :'已失效'}}</text>
+          <text class="time">{{item.irLawday}}</text>
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+<!-- 引入过滤文件 -->
+<wxs src='../../utils/filter.wxs' module='filter' />
+<view>
+  <!--pages/selectPeople/selectPeople.wxml-->
+  <text class="form-title">选择人员</text>
+
+  <view class="user-box" wx:if="{{show}}">
+    <van-search value="{{ value }}" bind:change="searchChange" bind:search="onSearch" placeholder="请输入用户关键字" />
+    <van-checkbox-group v-model="{{userList}}" value="{{ userList}}" bind:change="onChange">
+      <van-index-bar scroll-top="{{ scrollTop }}" index-list="{{ indexList }}">
+        <view wx:for="{{list}}">
+          <van-index-anchor index="{{item.first}}" />
+          <van-cell-group>
+            <van-cell wx:for="{{ item.userNameVos }}" data-index="{{item.key}}" wx:key="key" title="{{ item.label }}({{ filter.digitalConversion(item.quota)}})" value-class="value-class" clickable bind:click="toggle">
+              <van-checkbox data-index="{{item.key}}" catch:tap="noop" bind:click="toggle" class="checkboxes-{{ item.key }}" name="{{ item.label }}({{filter.digitalConversion(item.quota)}})-{{item.key}}-{{item.quota}}" />
+            </van-cell>
+          </van-cell-group>
+        </view>
+
+      </van-index-bar>
+
+    </van-checkbox-group>
+  </view>
+  <view class="btn-box">
+    <van-button class="btn" bindtap="save" type="info">确 定</van-button>
+  </view>
+</view>

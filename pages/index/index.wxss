@@ -1,0 +1,16 @@
+/**index.wxss**/
+
+.btn button:not([size='mini']) {
+  margin-top: 40rpx;
+  width: 100%;
+}
+
+.content {
+  padding: 10px;
+}
+
+.remark {
+  font-size: 12px;
+  display: block;
+  text-align: center;
+}

@@ -1,0 +1,77 @@
+/* pages/newProject/newProject.wxss */
+
+.value-class {
+  flex: none !important;
+}
+
+.user-box {
+  margin: 0 10px;
+  margin-top: 10px;
+  max-height: 230px;
+  overflow: auto;
+  background: #fff;
+}
+
+.list-item {
+  margin: 0 10px;
+  padding: 10px;
+  border-top: 1px solid #f7f7f7;
+  background: #fff;
+}
+
+.list-item text {
+  display: block;
+  width: 100%;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 40px;
+}
+
+.picker {
+  height: 20px;
+}
+
+.input .van-cell {
+  padding: 0 8px;
+}
+
+.user-table {
+  margin: 0 10px;
+  margin-top: 5px;
+  padding: 20px 0;
+  background: #fff;
+}
+
+.btn button:not([size='mini']) {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.btn-box {
+  margin: 0 10px;
+  padding-bottom: 100px;
+}
+
+.form-title {
+  display: block;
+  margin: 10px;
+  color: #1989fa;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.select_people {
+  position: absolute;
+  right: 14px;
+  top: -3px;
+  font-size: 12px;
+  width: 40px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  color: #fff;
+  background: #1989fa;
+  border-radius: 3px;
+}

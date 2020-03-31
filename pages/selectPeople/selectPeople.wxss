@@ -1,0 +1,61 @@
+/* pages/newProject/newProject.wxss */
+
+.value-class {
+  flex: none !important;
+}
+
+.user-box {
+  margin: 0 10px;
+  background: #fff;
+}
+
+.list-item {
+  margin: 0 10px;
+  padding: 10px;
+  border-top: 1px solid #f7f7f7;
+  background: #fff;
+}
+
+.list-item text {
+  display: block;
+  width: 100%;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 40px;
+}
+
+.picker {
+  height: 20px;
+}
+
+.input .van-cell {
+  padding: 0 8px;
+}
+
+.user-table {
+  margin: 0 10px;
+  max-height: 200px;
+  overflow: auto;
+  margin-top: 5px;
+  background: #fff;
+}
+
+.btn button:not([size='mini']) {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.btn-box {
+  margin: 0 10px;
+  padding-bottom: 20px;
+}
+
+.form-title {
+  display: block;
+  padding: 10px;
+  color: #1989fa;
+  font-size: 13px;
+  font-weight: 700;
+}

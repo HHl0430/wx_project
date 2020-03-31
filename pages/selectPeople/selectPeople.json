@@ -1,0 +1,19 @@
+{
+  "navigationBarTitleText": "选择人员",
+  "usingComponents": {
+    "van-checkbox": "../../dist/checkbox/index",
+    "van-checkbox-group": "../../dist/checkbox-group/index",
+    "van-cell": "../../dist/cell/index",
+    "van-cell-group": "../../dist/cell-group/index",
+    "van-search": "../../dist/search/index",
+    "van-tabbar": "../../dist/tabbar/index",
+    "van-tabbar-item": "../../dist/tabbar-item/index",
+    "van-datetime-picker": "../../dist/datetime-picker/index",
+    "van-radio": "../../dist/radio/index",
+    "van-radio-group": "../../dist/radio-group/index",
+    "van-divider": "../../dist/divider/index",
+    "com-date-picker": "../com-date-picker/com-date-picker",
+    "van-index-bar": "../../dist/index-bar/index",
+    "van-index-anchor": "../../dist/index-anchor/index"
+  }
+}

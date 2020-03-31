@@ -1,0 +1,27 @@
+/* pages/chart/chart.wxss */
+
+.table {
+  padding: 0 10px;
+}
+
+.table text {
+  background: #fff;
+  display: inline-block;
+  width: 33%;
+  height: 35px;
+  line-height: 35px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.table_th text {
+  font-weight: 700;
+}
+
+.table_td .text {
+  color: #1989fa;
+}
+
+.table .utype {
+  width: 50%;
+}

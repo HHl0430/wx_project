@@ -1,0 +1,52 @@
+/* pages/financialProDeta/financialProDeta.wxss */
+
+.page {
+  padding: 0 10px;
+}
+
+.list {
+  margin: 15px 0;
+}
+
+.list-item {
+  background: #fff;
+  border-top: 1px solid #f7f7f7;
+  padding: 6px;
+}
+
+.list-item text {
+  font-size: 13px;
+}
+
+.list-item .name {
+  font-weight: 700;
+}
+
+.list-item .monery {
+  float: right;
+  margin-right: 10px;
+}
+
+.list-item .state {
+  display: block;
+  margin-top: 5px;
+  float: left;
+}
+
+.minibtn-box {
+  float: right;
+}
+
+.mini-btn .van-button--mini {
+  min-width: var(--button-mini-min-width, 50px) !important;
+  width: auto;
+  min-height: 20px;
+  margin-left: 5px;
+}
+
+.dialog-upload .van-uploader__upload,
+.dialog-upload .van-uploader__preview-image, .dialog-upload .van-uploader__file {
+  height: 50px;
+  width: 50px;
+  margin-left: 5px;
+}

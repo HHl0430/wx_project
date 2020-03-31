@@ -1,0 +1,25 @@
+<!--pages/financialProDeta/financialProDeta.wxml-->
+<wxs src='../../utils/filter.wxs' module='filter' />
+<view class="page">
+  <view class="list">
+    <view class="list-item " wx:for="{{list}}">
+      <van-row>
+        <van-col span="24">
+          <text class="name">{{item.irLawday}}</text>
+          <text class="monery">{{item.irType == 0 ? '利息：': '本金：'}}{{filter.digitalConversion(item.irToaccount)}}</text>
+          <view>
+            <text class="state">{{item.irRepaymestate == 1 ? '已打款' : item.irRepaymestate == 0 ? '未打款' : '已失效'}}</text>
+            <view class="minibtn-box">
+              <van-button bind:click="remit" data-irid="{{item.irId}}" disabled="{{item.irRepaymestate != 0 || !item.aboolean}}" data-iuId="{{item.iuId}}" size="mini" class="mini-btn" type="primary">打款</van-button>
+
+            </view>
+          </view>
+        </van-col>
+      </van-row>
+    </view>
+  </view>
+  <van-toast id="van-toast" />
+  <van-dialog class="dialog-upload" use-slot title="确认打款" show="{{ show }}" show-cancel-button bind:close="onClose" bind:confirm="getUserInfo">
+    <van-uploader file-list="{{ fileList }}" bind:delete="deleteImg" bind:after-read="afterRead" />
+  </van-dialog>
+</view>

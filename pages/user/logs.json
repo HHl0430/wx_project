@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "项目列表",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "van-tabbar": "../../dist/tabbar/index",
+    "van-tabbar-item": "../../dist/tabbar-item/index",
+    "van-divider": "../../dist/divider/index"
+  }
+}

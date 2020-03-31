@@ -1,0 +1,40 @@
+/* pages/chart/chart.wxss */
+
+.table {
+  padding: 0 10px;
+}
+
+.table text {
+  background: #fff;
+  display: inline-block;
+  width: 20%;
+  height: 35px;
+  line-height: 35px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.table_th text {
+  font-weight: 700;
+}
+
+.table_td .text {
+  color: #1989fa;
+}
+
+.table_th .year, .table_th .num, .table_td .year, .table_td .num {
+  width: 12%;
+}
+
+.table_th .money, .table_td .money {
+  width: 28%;
+}
+
+.btn button:not([size='mini']) {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.btn-box {
+  margin-bottom: 15px
+}

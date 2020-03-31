@@ -1,0 +1,165 @@
+<wxs src='../../utils/filter.wxs' module='filter' />
+<view class="page">
+  <view>
+    <view class="list">
+      <view class="list-item">
+        <van-row>
+          <van-col span="10">
+            <text>项目名称:</text>
+          </van-col>
+          <van-col span="14">
+            <text class="text">{{form.iitemname}}</text>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="list-item">
+        <van-row>
+          <van-col span="10">
+            <text>项目周期:</text>
+          </van-col>
+          <van-col span="14">
+            <text class="text">{{form.ibegintime}} / {{form.iendtime}}</text>
+          </van-col>
+        </van-row>
+      </view>
+      <view class="list-item">
+        <van-row>
+          <van-col span="10">
+            <text>项目金额:</text>
+          </van-col>
+          <van-col span="14">
+            <text class="text">{{filter.digitalConversion(form.igatheringmoney)}}</text>
+          </van-col>
+        </van-row>
+      </view>
+      <view style="height: 0px; overflow:hidden" animation="{{ani}}">
+        <view class="list-item">
+          <van-row>
+            <van-col span="10">
+              <text>项目截至日期:</text>
+            </van-col>
+            <van-col span="14">
+              <text class="text">{{form.iitemlastdate}}</text>
+            </van-col>
+          </van-row>
+        </view>
+        <view class="list-item">
+          <van-row>
+            <van-col span="10">
+              <text>项目期数:</text>
+            </van-col>
+            <van-col span="14">
+              <text class="text">{{form.iitemperiods}}</text>
+            </van-col>
+          </van-row>
+        </view>
+        <view class="list-item">
+          <van-row>
+            <van-col span="10">
+              <text>周期单位:</text>
+            </van-col>
+            <van-col span="14">
+              <text class="text">{{form.iitemperiodsType == '1' ? '按月计息' :'按日计息'}}</text>
+            </van-col>
+          </van-row>
+        </view>
+        <view class="list-item" wx:if="{{form.iitemperiodsType == 1}}">
+          <van-row>
+            <van-col span="10">
+              <text>打款日期:</text>
+            </van-col>
+            <van-col span="14">
+              <text class="text">{{form.iitemperiodsMonth}}</text>
+            </van-col>
+          </van-row>
+        </view>
+        <view class="list-item" wx:if="{{form.iitemperiodsType != 1}}">
+          <van-row>
+            <van-col span="10">
+              <text>项目每期天数:</text>
+            </van-col>
+            <van-col span="14">
+              <text class="text">{{form.iitemperiodsday}}</text>
+            </van-col>
+          </van-row>
+        </view>
+        <view class="list-item">
+          <van-row>
+            <van-col span="10">
+              <text>收款银行名称:</text>
+            </van-col>
+            <van-col span="14">
+              <text class="text">{{form.ibBank}}</text>
+            </van-col>
+          </van-row>
+        </view>
+        <view class="list-item">
+          <van-row>
+            <van-col span="10">
+              <text>收款银行支行名称:</text>
+            </van-col>
+            <van-col span="14">
+              <text class="text">{{form.ibBankBranch}}</text>
+            </van-col>
+          </van-row>
+        </view>
+        <view class="list-item">
+          <van-row>
+            <van-col span="10">
+              <text>收款银行账户:</text>
+            </van-col>
+            <van-col span="14">
+              <text class="text">{{form.ibBanknumber}}</text>
+            </van-col>
+          </van-row>
+        </view>
+        <view class="list-item">
+          <van-row>
+            <van-col span="10">
+              <text>收款开户人姓名:</text>
+            </van-col>
+            <van-col span="14">
+              <text class="text">{{form.ibPayee}}</text>
+            </van-col>
+          </van-row>
+        </view>
+      </view>
+      <view style="text-align: center;font-size: 12px">
+        <view bindtap="start" wx:if="{{type == 'start'}}" style="padding: 5px;">
+          <van-icon name="arrow-down" />
+          <text> 查看更多</text>
+        </view>
+        <view bindtap="end" wx:if="{{type == 'end'}}" style="padding: 5px;">
+          <van-icon name="arrow-up" />
+          <text> 收 起</text>
+        </view>
+
+      </view>
+    </view>
+    <view class="list-box" wx:for="{{form.itemsUsers}}">
+      <van-row>
+        <van-col span="3">
+          <view class="fl">
+            <van-icon wx:if="{{item.iuToaccount == '0'}}" name="clock-o" color="#ff9900" />
+            <van-icon wx:if="{{item.iuToaccount == '1'}}" name="passed" color="#1989fa" />
+          </view>
+        </van-col>
+        <van-col span="21">
+          <view class="fr">
+            <text class="title">{{item.uname}}</text>
+            <text class="time">本金:{{filter.digitalConversion(item.iuJoinitemmoney) }} 利息:{{filter.digitalConversion(item.itemsRateSum)}} </text>
+            <van-tag class="state" color="#ff9900" wx:if="{{item.iuToaccount == '0'}}">
+              未到账
+            </van-tag>
+            <van-tag class="state" color="#1989fa" wx:if="{{item.iuToaccount == '1'}}">
+              已到账
+            </van-tag>
+          </view>
+        </van-col>
+      </van-row>
+    </view>
+    <van-button wx:if="{{form.iitemstate == 0 || form.iitemstate == 3}}" data-itemsid="{{form.iid}}" class="btn" bindtap="save" type="info">发 布</van-button>
+  </view>
+  <van-toast id="van-toast" />
+  <van-dialog id="van-dialog" />
+</view>
